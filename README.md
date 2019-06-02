@@ -14,6 +14,7 @@ Tigger
 Female
 Gizmo
 Jasper
+
 Notes
  Submissions will only be accepted via github or bitbucket
  Use industry best practices 
@@ -26,9 +27,17 @@ Notes
 
 ## Implementation ##
 
-I have build a solution using Asp .Net Web Api to acheive this requirement. 
-I have created an Asp .Net Web Api project with a MVC view to display the output.  It has various layers, and the given Data Service is consumed from the Service Layer of the application.
+I have build the solution using Asp .Net Web Api to acheive this requirement. 
+I have created an Asp .Net Web Api project with default MVC Home Controller view to display the output.  
+It has various layers, and the given Data Service is consumed from the Service Layer of the application.
 
+The Pet details are exposed as Restful Web Api service so that it can be accessed by many client applications. It can be accessed using the below URL.
+http://localhost:3808/api/pet/GetPetsByOwnerGender?PetType=cat
+
+This Service URL is called from the MVC Home controller to display the output in a view.
+
+note:
+Since Pet details are expossed as Restful service, It is called using Http Client from the MVC Home controller. Otherwise, Can directly call PetManager.cs class from Home controller to fetch the details.
 
 ## Execution Steps ##
 

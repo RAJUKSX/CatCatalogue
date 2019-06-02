@@ -1,0 +1,16 @@
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\CatCatalogue.Data.deps.json
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\CatCatalogue.Data.dll
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\CatCatalogue.Data.pdb
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.csprojAssemblyReference.cache
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.csproj.CoreCompileInputs.cache
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.AssemblyInfoInputs.cache
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.AssemblyInfo.cs
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.dll
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.pdb
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\obj\Debug\netstandard2.0\CatCatalogue.Data.csproj.CopyComplete
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\System.Configuration.dll
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\System.Security.dll
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\System.Configuration.xml
+C:\Projects\AGL\CatCatalogue\CatCatalogue.Data\bin\Debug\netstandard2.0\System.Security.xml

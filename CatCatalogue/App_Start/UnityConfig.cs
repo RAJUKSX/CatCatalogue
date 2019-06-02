@@ -6,6 +6,11 @@ using Unity.WebApi;
 
 namespace CatCatalogue
 {
+    /******************************************************************************************
+    FILE_NAME:  UnityConfig.cs
+    PURPOSE:    WEB API unity configuration file  to register the dependency classes.
+
+    ******************************************************************/
     public static class UnityConfig
     {
         public static void RegisterComponents()

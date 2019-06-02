@@ -13,6 +13,11 @@ using System.Web.Http;
 
 namespace CatCatalogue.Controllers
 {
+    /******************************************************************************************
+    FILE_NAME:  PetControll.cs
+    PURPOSE:    This class is the base page in Web Api for accessing Pet details.               
+
+    ******************************************************************/
     public class PetController : ApiController
     {
         #region Private Properties

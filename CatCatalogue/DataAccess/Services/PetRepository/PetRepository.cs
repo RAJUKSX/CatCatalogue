@@ -10,23 +10,24 @@ namespace CatCatalogue.DataAccess.Services.PetRepository
 {
     public class PetRepository : IPetRepository
     {
+        private HttpClient client;
+        public PetRepository()
+        {
+            client = new HttpClient();
+        }
         #region Public Methods
         public async Task<IEnumerable<Person>> GetPetDetails()
         {
             IEnumerable<Person> petList = null;
-            using (HttpClient client = new HttpClient())
-            {
-                //Read the JSON data from the service and deserialize it
-                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["DataSourceServiceURL"]);
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
-                if (responseBody != null)
-                {
-                    petList = JsonConvert.DeserializeObject<IEnumerable<Person>>(responseBody);                   
-                };
-            }
 
-             return petList;
+            //Read the JSON data from the service and deserialize it
+            HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["DataSourceServiceURL"]);           
+            if (response.IsSuccessStatusCode)
+            {
+                petList = await response.Content.ReadAsAsync<IEnumerable<Person>>();
+            }            
+
+            return petList;
 
         }
         #endregion

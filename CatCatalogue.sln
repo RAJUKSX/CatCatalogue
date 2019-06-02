@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatCatalogue", "CatCatalogu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatCatalogue.Tests", "CatCatalogue.Tests\CatCatalogue.Tests.csproj", "{5AC69D80-C598-4908-B1BC-3550DC0344ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatCatalogue.Business", "CatCatalogue.Business\CatCatalogue.Business.csproj", "{9AF7A0D5-88F9-4F18-AB08-B592EE6ED60C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatCatalogue.Data", "CatCatalogue.Data\CatCatalogue.Data.csproj", "{4FF51405-A4DE-4761-A4A1-4CCC41C52C46}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B566680C-495F-4DA1-98AC-8D453E319D36}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
@@ -30,14 +26,6 @@ Global
 		{5AC69D80-C598-4908-B1BC-3550DC0344ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC69D80-C598-4908-B1BC-3550DC0344ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC69D80-C598-4908-B1BC-3550DC0344ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AF7A0D5-88F9-4F18-AB08-B592EE6ED60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AF7A0D5-88F9-4F18-AB08-B592EE6ED60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AF7A0D5-88F9-4F18-AB08-B592EE6ED60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AF7A0D5-88F9-4F18-AB08-B592EE6ED60C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FF51405-A4DE-4761-A4A1-4CCC41C52C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FF51405-A4DE-4761-A4A1-4CCC41C52C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FF51405-A4DE-4761-A4A1-4CCC41C52C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FF51405-A4DE-4761-A4A1-4CCC41C52C46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

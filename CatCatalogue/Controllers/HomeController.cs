@@ -1,9 +1,12 @@
-﻿using CatCatalogue.Business;
+﻿using CatCatalogue.Business.PetManager;
 using CatCatalogue.Common;
-using CatCatalogue.Data;
+using CatCatalogue.DataAccess.Models.Custom;
+using CatCatalogue.DataAccess.Services.PetRepository;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -12,25 +15,21 @@ namespace CatCatalogue.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPetManager petManager;
-
-        public HomeController()
-        {
-            PetRepository petRepository = new PetRepository();
-            this.petManager = new PetManager(petRepository);
-        }
-
-        public HomeController(IPetManager petManager)
-        {
-            this.petManager = petManager;
-        }
+        #region Public Methods
         public async Task<ActionResult> Index()
-        {
-            ViewBag.Title = "AGL Developer Test";
-
-            var model = await petManager.GetPetDetails(PetType.Cat);
+        {            
+            GetPetsModel model = null;
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["WebApiURL"]);
+                if (response.IsSuccessStatusCode)
+                {
+                    model = await response.Content.ReadAsAsync<GetPetsModel>();
+                }
+            }
 
             return View(model);
         }
+        #endregion
     }
 }

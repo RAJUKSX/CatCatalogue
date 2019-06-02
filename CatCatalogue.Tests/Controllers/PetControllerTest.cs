@@ -1,8 +1,9 @@
 ﻿using CatCatalogue.Business;
+using CatCatalogue.Business.PetManager;
 using CatCatalogue.Common;
 using CatCatalogue.Controllers;
-using CatCatalogue.Data;
-using CatCatalogue.Data.Models.DTO;
+using CatCatalogue.DataAccess.Models.Custom;
+using CatCatalogue.DataAccess.Services.PetRepository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

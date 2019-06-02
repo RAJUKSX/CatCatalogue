@@ -27,7 +27,7 @@ Notes
 ## Implementation ##
 
 I have build a solution using Asp .Net Web Api to acheive this requirement. 
-I have created an Asp .Net Web Api project which has various layers, and the given service is called from the Service Layer of the application.
+I have created an Asp .Net Web Api project with a MVC view to display the output.  It has various layers, and the given Data Service is consumed from the Service Layer of the application.
 
 
 ## Execution Steps ##

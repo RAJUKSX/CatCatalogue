@@ -1,6 +1,7 @@
 ﻿using CatCatalogue.Business;
+using CatCatalogue.Business.PetManager;
 using CatCatalogue.Common;
-using CatCatalogue.Data.Models.DTO;
+using CatCatalogue.DataAccess.Models.Custom;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -18,7 +18,7 @@ namespace CatCatalogue.Tests.Controllers
     public class PetControllerTest
     {
         [TestMethod]
-        public void GetCatsByOwnerGender()
+        public async Task GetCatsByOwnerGender()
         {
             // Arrange
             PetRepository repository = new PetRepository();
@@ -26,11 +26,23 @@ namespace CatCatalogue.Tests.Controllers
             PetController controller = new PetController(manager);
 
             // Act
-            Task<GetPetsModel> result = controller.GetPetsByOwnerGender(PetType.Cat);
+            GetPetsModel result = await controller.GetPetsByOwnerGender(PetType.Cat);
             
             // Assert
             Assert.IsNotNull(result);
-           
+            //
+            Assert.AreEqual(4, result.MaleOwnedCats.Count());
+            Assert.AreEqual(3, result.FemaleOwnedCats.Count());
+            //
+            Assert.AreEqual("Garfield", result.MaleOwnedCats.ElementAt(0).Name);
+            Assert.AreEqual("Jim", result.MaleOwnedCats.ElementAt(1).Name);
+            Assert.AreEqual("Max", result.MaleOwnedCats.ElementAt(2).Name);
+            Assert.AreEqual("Tom", result.MaleOwnedCats.ElementAt(3).Name);
+            //
+            Assert.AreEqual("Garfield", result.FemaleOwnedCats.ElementAt(0).Name);
+            Assert.AreEqual("Simba", result.FemaleOwnedCats.ElementAt(1).Name);
+            Assert.AreEqual("Tabby", result.FemaleOwnedCats.ElementAt(2).Name);
+
         }
     }
 }

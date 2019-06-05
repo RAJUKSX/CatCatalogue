@@ -8,8 +8,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace CatCatalogue.Tests.Controllers
@@ -20,28 +22,35 @@ namespace CatCatalogue.Tests.Controllers
         [TestMethod]
         public async Task GetCatsByOwnerGender()
         {
+            GetPetsModel petDetails = null;
             // Arrange
             PetRepository repository = new PetRepository();
             PetManager manager = new PetManager(repository);            
             PetController controller = new PetController(manager);
+            //
+            controller.Request = new HttpRequestMessage();
+            controller.Configuration = new HttpConfiguration();
 
             // Act
-            GetPetsModel result = await controller.GetPetsByOwnerGender(PetType.Cat);
-            
+            var response = await controller.GetPetsByOwnerGender(PetType.Cat);
+            if (response.IsSuccessStatusCode)
+            {
+                petDetails = await response.Content.ReadAsAsync<GetPetsModel>();
+            }
             // Assert
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(petDetails);
             //
-            Assert.AreEqual(4, result.MaleOwnedCats.Count());
-            Assert.AreEqual(3, result.FemaleOwnedCats.Count());
+            Assert.AreEqual(4, petDetails.MaleOwnedCats.Count());
+            Assert.AreEqual(3, petDetails.FemaleOwnedCats.Count());
             //
-            Assert.AreEqual("Garfield", result.MaleOwnedCats.ElementAt(0).Name);
-            Assert.AreEqual("Jim", result.MaleOwnedCats.ElementAt(1).Name);
-            Assert.AreEqual("Max", result.MaleOwnedCats.ElementAt(2).Name);
-            Assert.AreEqual("Tom", result.MaleOwnedCats.ElementAt(3).Name);
+            Assert.AreEqual("Garfield", petDetails.MaleOwnedCats.ElementAt(0).Name);
+            Assert.AreEqual("Jim", petDetails.MaleOwnedCats.ElementAt(1).Name);
+            Assert.AreEqual("Max", petDetails.MaleOwnedCats.ElementAt(2).Name);
+            Assert.AreEqual("Tom", petDetails.MaleOwnedCats.ElementAt(3).Name);
             //
-            Assert.AreEqual("Garfield", result.FemaleOwnedCats.ElementAt(0).Name);
-            Assert.AreEqual("Simba", result.FemaleOwnedCats.ElementAt(1).Name);
-            Assert.AreEqual("Tabby", result.FemaleOwnedCats.ElementAt(2).Name);
+            Assert.AreEqual("Garfield", petDetails.FemaleOwnedCats.ElementAt(0).Name);
+            Assert.AreEqual("Simba", petDetails.FemaleOwnedCats.ElementAt(1).Name);
+            Assert.AreEqual("Tabby", petDetails.FemaleOwnedCats.ElementAt(2).Name);
 
         }
     }

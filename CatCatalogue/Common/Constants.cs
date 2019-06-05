@@ -7,6 +7,7 @@ namespace CatCatalogue.Common
 {
     public class Constants
     {
+        public const string SERVICE_GetCatDetails = "pet/GetPetsByOwnerGender?PetType=cat";
     }
 
     public enum Gender

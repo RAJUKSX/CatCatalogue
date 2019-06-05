@@ -2,6 +2,7 @@
 using CatCatalogue.Common;
 using CatCatalogue.DataAccess.Models.Custom;
 using CatCatalogue.DataAccess.Services.PetRepository;
+using CatCatalogue.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,14 +22,10 @@ PURPOSE:    This is the default MVC controller which comes as part Asp .Net Web 
 ******************************************************************/
     public class HomeController : Controller
     {
-        #region Private Variables
-        private HttpClient client;
-        #endregion
-
         #region Controller
         public HomeController()
         {
-            client = new HttpClient();
+            
         }
         #endregion
 
@@ -40,7 +37,9 @@ PURPOSE:    This is the default MVC controller which comes as part Asp .Net Web 
             //Calling Web Api - Pet Service from MVC controller to display the output.
             //Could have directly called PetManager.cs from here but it requires to instantiate PetManager.cs and PetRepository.cs here which will make those classes tightly coupled to HomeController.cs
             //Could not implement Dependency Injection for this MVC controller since this is primarily an Web Api project and Web Api DI implementation is already in place.
-            HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["WebApiURL"]);
+                      
+            HttpResponseMessage response = await Utility.InitilaizeHttpClient().GetAsync(Constants.SERVICE_GetCatDetails);
+
             if (response.IsSuccessStatusCode)
             {
                 model = await response.Content.ReadAsAsync<GetPetsModel>();

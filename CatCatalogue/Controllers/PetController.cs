@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Web.Http;
+using System.Web.Http.Filters;
 
 namespace CatCatalogue.Controllers
 {
@@ -18,6 +19,7 @@ namespace CatCatalogue.Controllers
     PURPOSE:    This class is the base page in Web Api for accessing Pet details.               
 
     ******************************************************************/
+ 
     public class PetController : ApiController
     {
         #region Private Properties
@@ -40,11 +42,26 @@ namespace CatCatalogue.Controllers
         /// Get Pets By Owner Gender
         /// </summary>
         /// <param name="petType"></param>
-        [HttpGet]
-        public async Task<GetPetsModel> GetPetsByOwnerGender(PetType petType)
+        public async Task<HttpResponseMessage> GetPetsByOwnerGender(PetType petType)
         {
-            GetPetsModel response = await petManager.GetPetDetails(petType);
-            return response;
+            try
+            {
+                var petDetails = await petManager.GetPetDetails(petType);
+
+                if (petDetails != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, petDetails);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Pet detail is not available");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+            
         }
         #endregion
     }
